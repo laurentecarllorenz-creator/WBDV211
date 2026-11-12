@@ -1,0 +1,372 @@
+/* IMPORT EDITORIAL & MODERN FONTS */
+@import url('https://googleapis.com');
+
+/* MAIN PAGE SPLIT LAYOUT */
+.auth-page {
+    position: relative;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 48% 52%;
+    background-color: #ffffff;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* EXACT FIT FOR LEFT PRODUCT & LOGO VISUAL WITH ZERO EDGES */
+.auth-page::before {
+    content: "";
+    grid-column: 1;
+    width: 100%;
+    height: 100%;
+    background-image: url("loginpic2.jpg");
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding: 24px;
+    box-sizing: border-box;
+    background-origin: content-box;
+    mix-blend-mode: multiply;
+}
+
+/* HIDE THE SEPARATE HANDBAG IMAGE */
+.auth-visual {
+    display: none;
+}
+
+/* RIGHT PANEL: PURE WHITE CONTAINER */
+.auth-content {
+    grid-column: 2;
+    width: 100%;
+    min-height: 100vh;
+    background: #ffffff;
+    border-left: 1px solid rgba(17, 17, 17, 0.08);
+    padding: 32px 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+/* HEADER: ALIGN BACK TO HOME ON RIGHT */
+.auth-header {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto 32px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 16px;
+}
+
+/* HIDE DUPLICATE RIGHT LOGO ON DESKTOP */
+.logo {
+    display: none;
+    align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.logo img {
+    height: 92px;
+    width: auto;
+    max-width: 280px;
+    object-fit: contain;
+    display: block;
+}
+
+.back-home {
+    color: #666;
+    text-decoration: none;
+    font: 500 13px 'Inter', sans-serif;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+}
+
+.back-home:hover {
+    color: #9b665c;
+}
+
+/* PAGE TITLE AND SUBTITLE */
+.auth-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(32px, 2.8vw, 40px);
+    font-weight: 500;
+    color: #111;
+    text-align: center;
+    margin: 0 0 8px;
+}
+
+.auth-subtitle {
+    text-align: center;
+    color: #666;
+    margin: 0 0 28px;
+    font: 400 14.5px/1.5 'Inter', sans-serif;
+}
+
+/* FORM CONTAINER */
+.auth-form {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* FORM LABELS AND INPUT FIELDS */
+.auth-form label {
+    display: block;
+    font: 600 12.5px 'Inter', sans-serif;
+    color: #222;
+    margin: 16px 0 6px;
+}
+
+.auth-form input[type="text"],
+.auth-form input[type="email"],
+.auth-form input[type="password"] {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid rgba(17, 17, 17, 0.16);
+    border-radius: 8px;
+    background: #fff;
+    color: #111;
+    font: 400 14px 'Inter', sans-serif;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* OVERRIDE CHROME BLUE AUTOFILL BACKGROUND */
+.auth-form input:-webkit-autofill,
+.auth-form input:-webkit-autofill:hover,
+.auth-form input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 1000px #fff inset;
+    -webkit-text-fill-color: #111;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* INPUT FOCUS EFFECT */
+.auth-form input:focus {
+    outline: none;
+    border-color: #9b665c;
+    box-shadow: 0 0 0 3px rgba(155, 102, 92, 0.12);
+}
+
+/* SHOW PASSWORD TOGGLE STYLING */
+.auth-form label[for*="show"],
+.auth-form .show-password,
+.auth-form .toggle-password {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin: 8px 0 0;
+    font: 500 12.5px 'Inter', sans-serif;
+    color: #666;
+    cursor: pointer;
+    user-select: none;
+}
+
+.auth-form label[for*="show"]:hover,
+.auth-form .show-password:hover,
+.auth-form .toggle-password:hover {
+    color: #9b665c;
+}
+
+/* REMEMBER ME AND FORGOT PASSWORD */
+.form-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 16px 0 22px;
+    font: 400 13px 'Inter', sans-serif;
+    color: #444;
+}
+
+.form-options label,
+.terms label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.form-options input[type="checkbox"],
+.terms input[type="checkbox"] {
+    accent-color: #9b665c;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+
+/* LINKS */
+.auth-form a {
+    color: #9b665c;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.auth-form a:hover {
+    text-decoration: underline;
+}
+
+/* LOG IN AND CREATE ACCOUNT BUTTONS */
+.auth-button {
+    width: 100%;
+    padding: 14px;
+    background: #111;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font: 600 13px 'Inter', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.auth-button:hover {
+    background: #9b665c;
+}
+
+.auth-button:active {
+    transform: scale(0.99);
+}
+
+/* OR CONTINUE WITH DIVIDER */
+.divider-text {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 22px 0;
+    font: 400 12.5px 'Inter', sans-serif;
+    color: #777;
+    white-space: nowrap;
+}
+
+.divider-text::before,
+.divider-text::after {
+    content: "";
+    height: 1px;
+    background: rgba(17, 17, 17, 0.12);
+    flex: 1;
+}
+
+/* GOOGLE SIGN-IN BUTTON */
+.google-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 12px;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid rgba(17, 17, 17, 0.16);
+    border-radius: 8px;
+    color: #111 !important;
+    background: #fff;
+    font: 500 14px 'Inter', sans-serif;
+    box-sizing: border-box;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.google-button:hover {
+    background: #f5f2ed;
+    border-color: #111;
+    text-decoration: none !important;
+}
+
+/* BOTTOM LINKS */
+.auth-footer {
+    text-align: center;
+    margin-top: 26px;
+    font: 400 13.5px 'Inter', sans-serif;
+    color: #555;
+}
+
+.auth-footer a {
+    color: #9b665c;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}
+
+/* TERMS AND CONDITIONS */
+.terms {
+    margin: 18px 0;
+    font: 400 12.5px 'Inter', sans-serif;
+    color: #555;
+}
+
+/* REGISTER PAGE SPACING */
+.register-page .auth-header {
+    margin-bottom: 24px;
+}
+
+.register-page .auth-subtitle {
+    margin-bottom: 18px;
+}
+
+.register-page .auth-form label {
+    margin-top: 12px;
+}
+
+.register-page .auth-footer {
+    margin-top: 20px;
+}
+
+/* TABLET AND SMALL SCREEN LAYOUT */
+@media (max-width: 900px) {
+    .auth-page {
+        grid-template-columns: 1fr;
+        background-image: none;
+        background-color: #ffffff;
+    }
+
+    .auth-page::before {
+        display: none;
+    }
+
+    .auth-content {
+        grid-column: 1;
+        border-left: none;
+        padding: 32px 6% 50px;
+    }
+
+    .auth-header {
+        justify-content: space-between;
+        margin-bottom: 32px;
+    }
+
+    .logo {
+        display: inline-flex;
+    }
+
+    .register-page .auth-header {
+        margin-bottom: 22px;
+    }
+}
+
+/* MOBILE PHONE LAYOUT */
+@media (max-width: 450px) {
+    .auth-header {
+        gap: 12px;
+    }
+
+    .logo img {
+        height: 68px;
+        max-width: 210px;
+    }
+
+    .back-home {
+        font-size: 12.5px;
+    }
+
+    .form-options {
+        flex-wrap: wrap;
+    }
+}
